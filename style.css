@@ -1,0 +1,776 @@
+/*color de barras del formulario*/
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Sulphur Point', sans-serif;
+}
+
+/*color y margenes del body*/
+body{
+  margin: 0;
+  padding: 0;
+  background-attachment: scroll;
+  background: white;
+  }
+html{
+  scroll-behavior: smooth;
+}
+
+.action{
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 65px;
+  height: 65px;
+  background:rgba(246, 185, 59,1.0);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s ease-out; 
+}
+.action:hover{
+  transition: 0.3s ease-out; 
+  background:rgba(246, 185, 59,0.94);
+}
+.action a{
+  text-decoration: none;
+  color: #636e72;
+  margin: auto;
+  letter-spacing: 2.5px;
+}
+.action span{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  transition: 0.3s ease-out; 
+}
+
+.action ul{
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  background: white;
+  width: 250px;
+  padding: 40px;
+  border-radius: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease-out; 
+}
+.action.active ul{
+  bottom: 85px;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s;
+}
+.action ul li{
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+  transition: 0.3s;
+}
+.action ul li:hover{
+  color: #2d3436;
+}
+.action ul li:not(:last-child){
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.action ul li img{
+  margin-right: 10px;
+
+  transform: scale(0.8);
+}
+.action img{
+  max-width: 30px;
+}
+@media screen and (max-width:600px){
+  .action{
+    bottom: 70px;
+    right: 20px;
+  }
+  .action ul{
+    padding: 20px;
+  }
+}
+
+/*
+.action ul li:hover img{
+  opacity: 0.8;
+  / opacity: 0.2;  se coloca en .action ul li img para disminuir 
+  el color de la imagen/
+}*/
+
+
+
+.circle{
+  position: fixed;
+  top: 89px;
+  padding: 10px;
+  border-bottom-right-radius: 20px;
+  transition: ease 0.5s;
+  background: #f3f3f3;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.circle:hover{
+  transition: ease 0.5s;
+}
+.circle a{
+  font-size: 14px;
+  margin: 5px;
+  color: rgba(99, 110, 114, 0.8);
+  transition: ease 0.4s;
+}
+.circle a:hover{
+  border-radius: 50px;
+  color: #6c5ce7;
+  transition: ease 0.4s;
+}
+@media screen and (max-width:900px){
+  .circle{
+    top: 90px;
+    margin-left: 0;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+}
+@media screen and (max-width:600px){
+  .circle{
+    padding: 10px;
+    font-size: 15px;
+    border-bottom-right-radius: 0px;
+  }
+  .circle a{
+    margin: 16.10px;
+  }
+}
+
+
+.header{
+  top: 0;
+  height: 90px;
+  width: 100%;
+  background: #FEFEFF;
+  position: fixed;
+}
+.header h2{
+  font-family: 'Dancing Script', cursive;
+}
+@media screen and (max-width:900px){
+  .header{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+/* nombre de la marca */
+.logo{
+  line-height: 80px;
+  font-size: 40px;
+  float: left;
+  margin-left: 20px;
+  font-family: cursive;
+  letter-spacing: 5px;
+  color: rgba(246, 185, 59,1.0);
+}
+
+/* enlaces de tienda, ofertas... etc y sus @media para ser responsivo */
+.menu{
+  text-align: center;
+  line-height: 90px;
+}
+.menu a{
+  letter-spacing: 2px;
+  border: none;
+  font-size: 15px;
+  margin: 2px;
+  padding: 15px;
+  width: 220px;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #2d3436;
+  transition: 0.6s;
+}
+.show-menu-btn,.hide-menu-btn{
+  transition: 0.4s;
+  font-size: 30px;
+  cursor: pointer;
+  display: none;
+}
+.show-menu-btn{
+  float: right;
+  margin-right: 20px;
+}
+.show-menu-btn i{
+  line-height: 100px;
+}
+#chk{
+  position: absolute;
+  visibility: hidden;
+  z-index: -1111;
+}
+.menu a:hover{
+  border-radius: 100px;
+  background: #f3f3f3;   
+}
+.menu .flama{
+  font-size: 18px;
+}
+.menu .flama:hover{
+  color: rgba(246, 185, 59,1);
+}
+
+@media screen and (max-width:800px) {
+  .show-menu-btn,.hide-menu-btn{
+    display: block;
+  }
+  .menu{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background:  #2d3436;
+    color: white;
+    right: -100%;
+    top: 0;
+    text-align: center;
+    padding: 80px 0;
+    line-height: normal;
+    transition: 0.4s;
+  }
+  .menu a:hover{
+    background: none;
+    border-radius: 0;
+  }
+  .menu a{
+    display: block;
+    padding: 30px 80px;
+    color: white;
+  }
+  .hide-menu-btn{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+  }
+  #chk:checked ~ .menu{
+    right: 0;
+  }      
+}
+@media screen and (max-width:600px){
+  .menu{
+    width: 100%;
+    height: 100%;
+  }
+
+}
+ .envios{
+  float: right;
+  margin-top: -75px;
+}
+.envios a{
+  text-decoration: none;font-size: 26px;
+  color: black;
+}
+button.envios { 
+  border: none;
+  background: #f3f3f3;
+  border-radius: 50px;
+  padding: 10px 15px;  
+  transition: ease 0.5s;
+}
+button.envios:hover{
+  background: #dddd;
+  transition: ease 0.5s;
+}
+
+/*
+  De esta manera podemos tener la imagen con un buen tamaño y alineamiento como en el ejemplo de
+  "fondo de la bienvenida"
+   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://cdn.pixabay.com/photo/2015/10/12/14/59/girl-984060_960_720.jpg);
+*/
+
+.fondo{
+  background-size: cover;
+  background-position: center;
+  background-image: url(https://images.pexels.com/photos/3884259/pexels-photo-3884259.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+ .bienvenida{
+   background: rgba(0, 0, 0, 0.25);
+   height: 550px;
+   padding: 50px;
+ }
+ .bienvenida h1{
+   text-transform: uppercase;
+   color: white;
+   margin-top: 180px;
+   letter-spacing: 3px;
+   border-radius: 10px;
+   font-size: 70px;
+   padding: 80px;
+   margin-bottom: 70px;
+ }
+ .fondo span a{
+   font-size: 40px;
+   color: white;
+ }
+ @media screen and (max-width:900px){
+  .fondo{
+    background-image: url(https://images.pexels.com/photos/3884249/pexels-photo-3884249.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+  }
+  .bienvenida h1{
+    margin-top: 100px;
+  }
+ }
+ @media screen and (max-width:600px){
+   .fondo .bienvenida h1{
+     padding: 0;
+     font-size: 32px;
+     margin-top: 240px;
+   }
+ }
+ /* flecha */
+ .enumeraciones button{
+  background: none;
+  color: none;
+  border: none;
+}
+
+
+/* "estaciones" */
+.estaciones{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+  margin: 60px;
+}
+@media screen and (max-width:1000px){
+  .estaciones{
+    margin: 0;
+    grid-template-columns: repeat(2,50%);
+  }
+}
+@media screen and (max-width:600px){
+  .estaciones{
+    grid-template-columns: 100%;
+  }
+}
+.estaciones{
+  text-align: center;
+  color: white;
+}
+.estacion p{
+  letter-spacing: 4px;
+  border-radius: 5px;
+  font-size: 20px;
+  padding: 75px 40px;
+  margin: 10px;
+  transition: ease 0.4s;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+}
+.estacion .primavera{
+  background-image: url(https://i.pinimg.com/564x/6e/9c/8b/6e9c8bf8d487e04ed8fecaeba2e34ad7.jpg);
+}
+.estacion .verano{
+  background-image: url(https://i.pinimg.com/564x/b9/77/1c/b9771c7e9622e96db3b49968c63d73c8.jpg);
+}
+.estacion .otoño{
+  background-image: url(https://i.pinimg.com/564x/34/04/7d/34047deb57c8de58320c8e0a8c1b6e8b.jpg);
+}
+.estacion .invierno{
+  background-image: url(https://i.pinimg.com/564x/e0/ac/73/e0ac73222ffc3e3221888b7dcd0d6082.jpg);
+}
+.estacion p:hover{
+  transition: ease 0.4s;
+  box-shadow: 10px 10px 0px 0px #dddd;
+}
+.estacion a{
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+
+.arrow{
+  text-align: center;
+  margin: 100px;
+  padding: 50px;
+  letter-spacing: 2px;
+  background: #f3f3f3; 
+  color: #2d3436;
+  border-radius: 10px;
+}
+.arrow img{
+  max-width: 250px;
+  margin: 10px;
+}
+@media screen and (max-width:600px){
+  .arrow{
+    margin: 10px;
+    background: none;
+  }
+}
+@media screen and (max-width:600px){
+  .border__contenido{
+  margin-top: 60px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: #f3f3f3;
+}
+.border__contenido2{
+  margin-top: 60px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  background: #dddd;
+}
+}
+
+/* categorias dama, caballero */
+.titulo__categorias h1{
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #2d3436;
+  font-size: 50px;
+  letter-spacing: 4px;
+  padding-top: 30px;
+}
+.categorias{
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(4,25%);
+}
+@media screen and (max-width:1200px){
+  .categorias{
+    grid-template-columns: repeat(2,50%);
+  }
+}
+@media screen and (max-width:600px){
+  .categorias{
+    grid-template-columns: 100%;
+  }
+  .categorias__contenedor p{
+    padding: 100px 5px;
+  }
+}
+.categorias__contenedor p{
+  border-radius: 5px;
+  padding: 140px 5px;
+  margin: 10px;
+  text-align: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+}
+/*Categoria dama     box-shadow: 0px 10px 0px 0px #0984e3;*/
+.categorias .blusas{
+  background-image: url(https://images.pexels.com/photos/799965/pexels-photo-799965.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.categorias .pantalones{
+  background-image: url(https://images.pexels.com/photos/1138560/pexels-photo-1138560.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.categorias .vestidos{
+  background-image: url(https://images.pexels.com/photos/884979/pexels-photo-884979.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.categorias .calzado{
+  background-image: url(https://i.pinimg.com/564x/8c/bd/1d/8cbd1dd3c82abd966f01f0cbf1ef4c15.jpg);
+}
+/*Categoria caballero*/
+.categorias .camisas{
+  background-image: url(https://images.pexels.com/photos/3878182/pexels-photo-3878182.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+}
+.categorias .pantalones1{
+  background-image: url(https://i.pinimg.com/564x/96/8f/dd/968fdd5f959c076f2be46f0af9ff4a83.jpg);
+}
+.categorias .sudaderas{
+  background-image: url(https://i.pinimg.com/564x/ab/eb/ae/abebae140dd0c59ecbd9c4a6e0a0d571.jpg);
+}
+.categorias .calzado1{
+  background-image: url(https://i.pinimg.com/564x/f9/b8/e6/f9b8e6822da9e169ba3deade0199bdaa.jpg);
+}
+.categorias__contenedor p a{
+  text-decoration: none;
+  padding: 15px;
+  background: white;
+  color: #2d3436;
+  letter-spacing: 4px;
+}
+
+@media screen and (max-width:600px){
+  .titulo__categorias h1{
+    font-size: 32px;
+  }
+  .categorias{
+    margin-bottom: 0px;
+  }
+}
+
+/*boton para regresar al header*/
+.gotopbtn{
+  position: fixed;
+  padding: 5px 18px;
+  background: #f3f3f3;
+  box-shadow: 0px 5px 2px 0px rgba(45, 52, 54,0.5);
+  bottom: 40px;
+  right: 50px;
+  border-radius: 100px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 50px;
+  color: #2d3436;
+  font-size: 18px;
+  transition: all 0.5s ease;
+}
+.gotopbtn:hover{
+  background: #f3f3f3;
+}
+
+
+/* Informacion Productos */
+.reciclables{
+  height: 400px;
+  display: flex;
+  padding: 100px;
+  font-family: 'Amatic SC', cursive;
+  }
+.reciclables p{
+  color: #2d3436;
+  font-size: 18px;
+  letter-spacing: 2px;
+  padding: 150px;
+}
+.reciclables button{
+  margin: 30px  0px;
+  border: none;
+  padding: 10px 30px;
+  font-size: 18px;
+  background: black;
+  color: white;
+  border: 1px solid black;
+  transition:  0.5s;
+}
+.reciclables button:hover{
+  background: white;
+  color: black;
+  border: 1px solid black;
+  transition:  0.5s;
+}
+
+@media screen and (max-width:900px){
+  .reciclables{
+    margin-top: -100px;
+    padding: 30px;
+  }
+  .reciclables p{
+    font-size: 15px;
+    padding: 50px;
+  }
+}
+
+
+
+.final-contenido{
+  background: black;
+  padding: 100px;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+}
+.final-enlaces h2{
+  color: white;
+}
+.final-enlaces p{
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: tan;
+}
+.final-enlaces i{
+  color: white;
+}
+.final-enlaces2 a{
+  float: right;
+  text-decoration: none;
+  color: white;
+  border-radius: 50px;
+  font-size: 18px;
+  margin: 10px;
+}
+@media screen and (max-width:600px){
+  .final-enlaces p{
+    padding: 0px;
+      margin-top: 30px;
+  }
+  .final-enlaces i{
+    letter-spacing: 0px;
+  }
+  .final-enlaces2 a{
+    font-size: 15px;
+    margin-bottom: 50px;
+  }
+}
+
+.promosiones{
+  bottom: 0px;
+  text-align: center;
+  padding: 5px;
+  background: #ffd200;
+  color: white;
+}
+@media screen and (max-width:900px){
+  .promosiones{
+    position: fixed;
+    width: 100%;
+  }
+}
+
+.ventana-popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: ease-out 0.35s;
+  visibility: hidden;
+  opacity: 0;
+}
+.ventana-popup:target {
+  visibility: visible;
+  opacity: 1;
+  transition: ease-out 0.35s;
+}
+.popup .clos {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: ease-out 0.35s;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+.popup .clos:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+.popup {
+  margin: 70px auto;
+  padding: 40px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  margin-top: 20px;
+}
+.popup  h2 {
+  text-align: center;
+  letter-spacing: 2.5px;
+  margin-top: 0;
+  color: #333;
+  font-size: 24px;
+  font-family: impact;
+  margin-bottom: 50px;
+}
+.form{
+  width: 100%;
+  box-shadow: 0 0 20 0 rgba(0, 0, 0, 0.5);
+  margin: auto;
+  letter-spacing: 2px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 18px;
+  color: rgba(45, 52, 54,1.0);
+  margin: 20px;
+}
+.form .grupo{
+  position: relative;
+  margin: 25px;
+}
+.form label{
+  color: black;
+  position: absolute;
+  left: 5px;
+  transition: ease-out 0.3s;
+  top: -22px;
+} 
+.form input{
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 10px 100px;
+  border-radius: 5px;
+  color: rgba(45, 52, 54,0.9);
+  border: 1px solid rgba(178, 190, 195,0.7);
+  transition: ease 0.4s;
+}
+.form input:focus{
+  text-align: center;
+  color: rgba(45, 52, 54,0.7);
+  background: rgba(221, 221, 221,0.8);
+  transition: ease 0.4s;
+  border: 1px solid white;
+}
+.form button{
+  font-size: 14px;
+  color: black;
+  font-family: 'Open Sans Condensed', sans-serif;
+  letter-spacing: 2px;
+  border: none;
+  background: rgba(221, 221, 221, 0.75);
+  border-radius: 5px;
+  margin: 4px;
+  padding: 10px 20px;
+  transition: ease 0.5s;
+  text-align: center;
+}
+.form button:hover{
+  background: rgba(99, 110, 114,0.3);
+  transition: ease 0.5s;
+}
+.popup a{
+  color: #2d3436;
+}
+@media screen and (max-width:600px){
+  .popup{
+      top: 40px;
+      width: 80%;
+  }
+  .popup .clos{
+      top: 5px;
+      right: 15px;
+  }
+  .form{
+      font-size: 15px;
+  }
+  .form label{
+      left: -25px;
+  }
+  .form input{
+      margin-left: -30px;
+      padding: 10px 20px;
+  }
+  .form button{
+      font-size: 12px;
+      padding: 10px 55px;
+  }
+}
+
+
+
+/* Presione los accesos directos shift+ alt+ fpara formatear el archivo CSS (asegúrese de que el archivo actual que edite sea css) */
